@@ -10,6 +10,12 @@ pipeline {
                 deleteDir()
             }
         }
+        stage('Fetch Repository') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: 'br1']], 
+                          userRemoteConfigs: [[url: 'https://github.com/nohhyejin1/jenkins_first.git']]])
+            }
+        }
         stage('build') {
             steps {
                 sh 'python --version'
