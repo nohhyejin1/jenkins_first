@@ -5,6 +5,11 @@ pipeline {
         }
     }
     stages {
+        stage('Workspace Cleanup') {
+            steps {
+                deleteDir()
+            }
+        }
         stage('build') {
             steps {
                 sh 'python --version'
